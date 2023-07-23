@@ -15,7 +15,7 @@
 
 <main>
   <div class="flexAccueil">
-    <h1>Nos Chalets en vedette</h1> 
+    <h1>Promotion des vacances de la construction!</h1> 
     <div class="flex">
     <!-- Chalets sous forme de cartes -->
     <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
@@ -23,6 +23,7 @@
     $controllerChalets->afficherDealsChalets();
     ?>
     </div>
+    <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir la liste complète</span></a> 
     <h2>Autres coups de coeurs</h2> 
     <div class="flex">
 
@@ -80,7 +81,7 @@
         </div>
       </div>
     </div>
-
+    <a class="lienAccueil" href="liste_chalets.php"><span>Voir tous les chalets</span></a> 
   </div>
 </main>
 

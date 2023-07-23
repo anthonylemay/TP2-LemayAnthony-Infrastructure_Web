@@ -14,15 +14,20 @@ class ControllerChalets {
         if($chalets){
         require  __DIR__ . '/../vues/chalets/chaletsRegion.php';
         } else {
-            $erreur = "Aucune région trouvée avec cet identifiant";
+            $erreur = "Aucun chalet trouvé dans la région visée";
             require './vues/erreur.php';
         }
 
     } else {
-        $erreur = "L'identifiant du client à afficher est manquant dans l'url";
+        $erreur = "Sans région, nous ne pouvons vous afficher des chalets. Veuillez réessayer.";
         require './vues/erreur.php';
     }
-}
+    }
+    function afficherChaletsActifs() {
+        $chalets = modele_chalets::getChaletsActifs();
+        require  __DIR__ . '/../vues/chalets/chaletsActifs.php';
+    }
+
 
 }
 

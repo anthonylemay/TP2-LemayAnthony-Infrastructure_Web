@@ -13,11 +13,11 @@ class RegionController {
             if($region) {
                 require __DIR__ . '/../vues/regions/regionIndividuelle.php';
             } else {
-                $erreur = "Aucun client trouvé";
+                $erreur = "Aucune région trouvée";
                 require './vues/erreur.php';
             }
         } else {
-            $erreur = "L'identifiant du client à afficher est manquant dans l'url";
+            $erreur = "Aucune région n'a été sélectionnée. Veuillez s.v.p. Réessayer.";
             require './vues/erreur.php';
         }
     }

@@ -1,11 +1,17 @@
-<?php   include_once __DIR__ . '/vues/header.php'; ?>
+<?php   include_once __DIR__ . '/vues/header.php';
 
-  <main>
-  
+include_once __DIR__ . '/vues/header.php';
+require_once __DIR__ . '/controllers/chalet.php';
+?>
+
+<main>
+    <body>
     <h1 class="my-4">Tous les chalets actifs</h1>
-    <!-- Afficher la liste de tous les chalets actifs en ordre alphabétique -->
-    <!-- L'affichage doit être le même que celui utilisé pour l'affichage des chalets par région -->
-	
-  </main>
-  <?php include_once __DIR__ . '/vues/footer.php'; ?>
+     <?php
+        $chaletController = new ControllerChalets();
+        $chaletController->afficherChaletsActifs();
+     ?>
+    </body>
+</main>
 
+<?php include_once __DIR__ . '/vues/footer.php'; ?>

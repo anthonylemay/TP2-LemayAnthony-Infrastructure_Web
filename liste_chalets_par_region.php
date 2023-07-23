@@ -20,9 +20,6 @@ if (isset($_GET['id']) && !is_numeric($_GET['id'])) {
          $controllerRegion->afficherRegion();
          $controllerChalet->afficherChaletsParRegion();
      ?>
-     
-     <a href="clients.php">Retour à la liste des clients</a>
- 
     </body>
 </main>
 

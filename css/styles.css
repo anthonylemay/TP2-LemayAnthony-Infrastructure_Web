@@ -362,10 +362,21 @@ input:focus {
     border-radius: .25rem;
 }
 
-.cardPromo a.cardButton:hover{
-    text-decoration: none;
-    padding: 1rem;
+a.cardButton:hover{
     background-color: white;
     color: black;
+}
+
+a.lienAccueil{
+    padding:1rem;
+    margin: 2rem;
+    text-decoration: none;
+    background-color: black;
+    color: white;
     border-radius: .25rem;
+}
+
+a.lienAccueil:hover{
+    background-color: white;
+    color: black;
 }

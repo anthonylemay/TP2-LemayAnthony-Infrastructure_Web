@@ -64,6 +64,32 @@ class modele_chalets {
         return $liste;
     }
 
+    public static function getChaletsActifs() {
+        $liste = [];
+        $mysqli = Db::connecterDB_1();
+        $resultatRequete = $mysqli->query(
+        "SELECT * FROM chalets 
+        WHERE actif = 1  
+        ORDER BY nom ASC;    
+        ");
+
+        foreach ($resultatRequete as $enregistrement) {
+            $liste [] = new modele_chalets(
+                $enregistrement['id'],
+                $enregistrement['nom'],
+                $enregistrement['description'],
+                $enregistrement['personnes_max'],
+                $enregistrement['prix_haute_saison'],
+                $enregistrement['prix_basse_saison'],
+                $enregistrement['actif'],
+                $enregistrement['promo'],
+                $enregistrement['date_inscription'],
+                $enregistrement['fk_region'],
+                $enregistrement['id_picsum']);
+        }
+        return $liste;
+    }
+
     public static function getAllChalets() {
         $liste = [];
         $mysqli = Db::connecterDB_1();
