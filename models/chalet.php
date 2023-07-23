@@ -87,7 +87,35 @@ class modele_chalets {
         return $liste;
     }
 
-
-    
+    public static function getAllChaletsParRegion($id) {
+        $liste = [];
+        $mysqli = Db::connecterDB_1();
+        if ($requete = $mysqli->prepare("SELECT * FROM chalets WHERE chalets.fk_region=? AND actif = 1  
+        ORDER BY nom ASC;")) { 
+        $requete->bind_param("i", $id); // Envoi des paramètres à la requête
+        $requete->execute(); // Exécution de la requête
+        $resultatRequete = $requete->get_result(); // Récupération de résultats de la requête¸
+        while($enregistrement = $resultatRequete->fetch_assoc()) { // Récupération de l'enregistrement
+            $liste [] = new modele_chalets(
+                $enregistrement['id'],
+                $enregistrement['nom'],
+                $enregistrement['description'],
+                $enregistrement['personnes_max'],
+                $enregistrement['prix_haute_saison'],
+                $enregistrement['prix_basse_saison'],
+                $enregistrement['actif'],
+                $enregistrement['promo'],
+                $enregistrement['date_inscription'],
+                $enregistrement['fk_region'],
+                $enregistrement['id_picsum']);
+        }
+        $requete->close();
+        }   else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+            echo $mysqli->error;
+            return null;
+        }
+        return $liste;
     }
+}
 ?>

@@ -14,14 +14,18 @@
 ?>
 
 <main>
-    <h1>Projet final</h1>
-
+  <div class="flexAccueil">
+    <h1>Nos Chalets en vedette</h1> 
+    <div class="flex">
+    <!-- Chalets sous forme de cartes -->
+    <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
     <?php  
     $controllerChalets->afficherDealsChalets();
     ?>
-    <!-- Chalets sous forme de cartes -->
-    <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
+    </div>
+    <h2>Autres coups de coeurs</h2> 
     <div class="flex">
+
       <div class="card">
         <img src="https://picsum.photos/id/380/500" alt="Chalet #1">
         <div class="cardcontainer">
@@ -75,7 +79,7 @@
           <a href="#">Pour en savoir plus</a>
         </div>
       </div>
-
+    </div>
 
   </div>
 </main>

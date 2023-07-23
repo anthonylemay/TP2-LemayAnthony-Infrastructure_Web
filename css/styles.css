@@ -127,7 +127,7 @@ main {
     max-width:1200px;
 }
 
-main h1, main>p, footer {
+main h1, main h2, main>p, footer {
     text-align:center;
 }
 
@@ -290,16 +290,26 @@ input:focus {
 
 /* CUSTOM STYLES */
 
+.flexAccueil{
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    width:100%;
+}
+
+
 .promoFlex{
     display:flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
+    width:100%;
 
 
 }
 
-.promoCards{
+.promoSlides{
     display:flex;
         flex-direction: row;
     flex-wrap: wrap;
@@ -313,10 +323,25 @@ input:focus {
     background-color: lightgray;
     border-radius: 1rem;
     display:flex;
+    flex-direction: row;
+    align-items:center;
+    width: 100%;
+}
+
+.cardPromoGal{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.cardPromoInfo{
+    padding: 1rem;
+    display:flex;
     flex-direction: column;
-    align-items:start;
-    justify-content:space-between;
-    max-width: 25%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .cardPromo img{

@@ -22,5 +22,31 @@
             }
             return $liste;
         }
+        public static function ObtenirUne($id) {
+            $mysqli = Db::connecterDB_1();
+    
+            if ($requete = $mysqli->prepare("SELECT * FROM regions WHERE id=?")) {  // Création d'une requête préparée 
+                $requete->bind_param("i", $id); // Envoi des paramètres à la requête
+    
+                $requete->execute(); // Exécution de la requête
+    
+                $result = $requete->get_result(); // Récupération de résultats de la requête¸
+                
+                if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                    $region = new regionModel($enregistrement['id'], $enregistrement['nom']);
+                } else {
+                    //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                    return null;
+                }   
+                
+                $requete->close(); // Fermeture du traitement 
+            } else {
+                echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+                echo $mysqli->error;
+                return null;
+            }
+    
+            return $region;
+        }
     }
 ?>

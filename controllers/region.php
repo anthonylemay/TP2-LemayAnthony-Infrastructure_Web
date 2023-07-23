@@ -2,14 +2,24 @@
 
 require_once __DIR__ . '/../models/region.php';
 
-class MenuRegionController {
+class RegionController {
     public function afficherMenuRegions() {
         $regions = regionModel::getAllRegions();
-        $region_list = '<ul>';
-        foreach ($regions as $region) {
-            $region_list .= '<li><a href="liste_chalets_par_region.php?region_id=' . $region->id . '">' . $region->nom_region . '</a></li>';
-        }
-        $region_list .= '</ul>';
-        return $region_list;
+        require __DIR__ . '/../vues/menu/listeRegion.php';
     }
+    function afficherRegion() {
+        if(isset($_GET["id"])) {
+            $region = regionModel::ObtenirUne($_GET["id"]);
+            if($region) {
+                require __DIR__ . '/../vues/regions/regionIndividuelle.php';
+            } else {
+                $erreur = "Aucun client trouvé";
+                require './vues/erreur.php';
+            }
+        } else {
+            $erreur = "L'identifiant du client à afficher est manquant dans l'url";
+            require './vues/erreur.php';
+        }
+    }
+    
 }

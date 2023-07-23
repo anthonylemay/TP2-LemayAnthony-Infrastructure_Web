@@ -3,7 +3,7 @@
 // require_once __DIR__ . '/../controllers/test.php'; // DEBUG pour regarder si le lien entre models / config fonctionne.
  
 require_once __DIR__ . '/../controllers/region.php';
-$menuRegionController = new MenuRegionController();
+$menuRegionController = new RegionController();
 
 
 ?>
