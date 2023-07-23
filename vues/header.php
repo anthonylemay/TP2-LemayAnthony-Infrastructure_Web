@@ -2,17 +2,8 @@
 
 // require_once __DIR__ . '/../controllers/test.php'; // DEBUG pour regarder si le lien entre models / config fonctionne.
  
-function region_list(){
-  require_once __DIR__ . '/../controllers/region.php';
-  $menuRegionController = new MenuRegionController();
-  $regions = $menuRegionController->afficherMenuRegions();
-  $region_list = '<ul>';
-  foreach ($regions as $region) {
-      $region_list .= '<li><a href="liste_chalets_par_region.php?region_id=' . $region->id . '">' . $region->nom_region . '</a></li>';
-  }
-  $region_list .= '</ul>';
-  return $region_list;
-}
+require_once __DIR__ . '/../controllers/region.php';
+$menuRegionController = new MenuRegionController();
 
 
 ?>
@@ -43,7 +34,7 @@ function region_list(){
           <li>
             <a href="liste_chalets_par_region.php">Chalets par région &nbsp;<i class="arrow down"></i></a>
             <ul>
-                <?php echo region_list(); ?>
+                <?php  echo $menuRegionController->afficherMenuRegions();?>
             </ul>
           </li>
           <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>
