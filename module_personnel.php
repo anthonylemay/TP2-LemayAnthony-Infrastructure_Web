@@ -8,5 +8,4 @@
     <!-- Affichez les enregistrement de la table que vous avez ajoutée à la base de données. -->
 	
   </main>
-
   <?php include_once __DIR__ . '/vues/footer.php'; ?>

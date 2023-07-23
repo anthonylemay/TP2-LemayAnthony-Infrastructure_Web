@@ -17,16 +17,15 @@ $menuRegionController = new MenuRegionController();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BONNE VR (défi! rendre ce titre dynamique selon la page sélectionnée)</title>
+  <title>Chalets Locatifs</title>
   
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="light-mode">
-
   <!-- Navigation -->
   <header>
-    <nav>
+    <nav class="container">
       <img src="https://picsum.photos/id/13/80" alt="logo">
       <ul>
           <li><a href="index.php">Accueil</a></li>
@@ -61,5 +60,5 @@ $menuRegionController = new MenuRegionController();
     </nav>
     <hr>
   </header>
-
+  <div class="container">       <!-- container qui se ferme dans le footer après le main -->
   

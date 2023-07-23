@@ -7,6 +7,5 @@
     <!-- L'affichage doit être le même que celui utilisé pour l'affichage des chalets par région -->
 	
   </main>
-
   <?php include_once __DIR__ . '/vues/footer.php'; ?>
 

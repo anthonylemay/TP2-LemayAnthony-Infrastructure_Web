@@ -43,7 +43,8 @@ class modele_chalets {
         $resultatRequete = $mysqli->query(
         "SELECT * FROM chalets 
         WHERE promo = 1 AND actif = 1  
-        ORDER BY date_inscription ASC;
+        ORDER BY RAND()
+        LIMIT 6;        
         ");
 
         foreach ($resultatRequete as $enregistrement) {
@@ -66,8 +67,8 @@ class modele_chalets {
     public static function getAllChalets() {
         $liste = [];
         $mysqli = Db::connecterDB_1();
-        $resultatRequete = $mysqli->query("SELECT * FROM chalets WHERE;
-        "); // replace 'properties' with your table name
+        $resultatRequete = $mysqli->query("SELECT * FROM chalets;
+        ");
 
         foreach ($resultatRequete as $enregistrement) {
             $liste [] = new modele_chalets(

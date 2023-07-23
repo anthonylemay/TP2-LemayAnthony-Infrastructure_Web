@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* mise en page */
 html {
     margin:0;
@@ -10,24 +14,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* thèmes */
-.dark-mode, .dark-mode header {
-    background-color: #191F2C;
-    color: white;
-}
-
-/* thèmes */
-.dark-mode a {
-    color: white;
-}
-
-.dark-mode .card {
-    background-color: #2B303D;
-}
  
 .light-mode, .light-mode a, .light-mode header {
     background-color: white;
     color: black;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Entête */
@@ -39,11 +34,11 @@ header img {
 }
 
 header {
+    width: 100%;
+    margin: 0 auto;
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
+    background-color:white;
 }
 
 header nav {
@@ -171,26 +166,26 @@ hr {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.card .container {
+.card .cardcontainer {
     padding: 2px 16px;
 }
 
-.card .container h4 {
+.card .cardcontainer h4 {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-.card .container {
+.card .cardcontainer {
     margin-bottom: 10px;
 }
 
-.card .container span {
+.card .cardcontainer span {
     display: inline-block;
     margin: 0;
     min-width: 48%;
 }
 
-.card .container a {
+.card .cardcontainer a {
     display: inline-block;
     margin: 0;
     text-align: right;
@@ -290,4 +285,62 @@ input {
 input:focus {
     border-color: #3c4fe0;
     box-shadow: 0 1px 0 0 rgb(35 38 59 / 5%);
+}
+
+
+/* CUSTOM STYLES */
+
+.promoFlex{
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+
+}
+
+.promoCards{
+    display:flex;
+        flex-direction: row;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content:center;
+}
+
+.cardPromo{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: lightgray;
+    border-radius: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content:space-between;
+    max-width: 25%;
+}
+
+.cardPromo img{
+    border-radius: 1rem;
+    max-width: 100%;
+}
+
+.cardPromo h3, .cardPromo h4{
+        max-width: 100%;;
+}
+
+.cardPromo a.cardButton{
+    text-decoration: none;
+    padding: 1rem;
+    
+    background-color: black;
+    color: white;
+    border-radius: .25rem;
+}
+
+.cardPromo a.cardButton:hover{
+    text-decoration: none;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    border-radius: .25rem;
 }

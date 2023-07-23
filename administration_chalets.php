@@ -14,5 +14,4 @@
 		Si un utilisateur non connecté essaie d'accéder à la page, un message d'erreur doit s'afficher.
 	</p>
   </main>
-
   <?php include_once __DIR__ . '/vues/footer.php'; ?>
