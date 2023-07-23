@@ -1,3 +1,22 @@
+<?php
+
+// require_once __DIR__ . '/../controllers/test.php'; // DEBUG pour regarder si le lien entre models / config fonctionne.
+ 
+function region_list(){
+  require_once __DIR__ . '/../controllers/region.php';
+  $menuRegionController = new MenuRegionController();
+  $regions = $menuRegionController->afficherMenuRegions();
+  $region_list = '<ul>';
+  foreach ($regions as $region) {
+      $region_list .= '<li><a href="liste_chalets_par_region.php?region_id=' . $region->id . '">' . $region->nom_region . '</a></li>';
+  }
+  $region_list .= '</ul>';
+  return $region_list;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr-CA">
 
@@ -7,7 +26,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Titre de la page (défi! rendre ce titre dynamique selon la page sélectionnée)</title>
+  <title>BONNE VR (défi! rendre ce titre dynamique selon la page sélectionnée)</title>
   
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -24,10 +43,7 @@
           <li>
             <a href="liste_chalets_par_region.php">Chalets par région &nbsp;<i class="arrow down"></i></a>
             <ul>
-              <li><a href="#">Région #1</a></li>
-              <li><a href="#">Région #2</a></li>
-              <li><a href="#">Région #3</a></li>
-              <li><a href="#">...</a></li>
+                <?php echo region_list(); ?>
             </ul>
           </li>
           <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>

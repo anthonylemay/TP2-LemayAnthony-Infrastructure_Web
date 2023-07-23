@@ -3,7 +3,7 @@
 
   <footer>
     <hr>
-    Copyright &copy; (Votre nom) 2023
+    Copyright &copy; Anthony Lemay, 2023. Réalisé dans le cadre du cours Infrastructure Web du Cégep de TR à l'Hiver 2023.
   </footer>
 
   

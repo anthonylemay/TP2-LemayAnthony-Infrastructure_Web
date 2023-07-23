@@ -1,4 +1,16 @@
-<?php include_once(__DIR__ . './include/header.php'); ?>
+<?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+
+  include_once __DIR__ . '/vues/header.php';
+  
+  /* require_once __DIR__ . '/include/config.php';
+  $db1 = Db::connecterDB_1();
+  $db2 = Db::connecterDB_2();  */ /*DEBUG LIEN BASE DE DONNÉE SI CA MARCHE*/
+
+
+?>
 
 <main>
     <h1>Projet final</h1>
@@ -65,4 +77,4 @@
 
 </main>
 
-<?php include_once(__DIR__ . './include/footer.php'); ?>
+<?php include_once __DIR__ . '/vues/footer.php'; ?>
