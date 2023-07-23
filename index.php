@@ -20,10 +20,10 @@
     <!-- Chalets sous forme de cartes -->
     <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
     <?php  
-    $controllerChalets->afficherDealsChalets();
+    $controllerChalets->afficherDealFlash();
     ?>
     </div>
-    <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir la liste complète</span></a> 
+    <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir toutes nos promotions</span></a> 
     <h2>Autres coups de coeurs</h2> 
     <div class="flex">
 

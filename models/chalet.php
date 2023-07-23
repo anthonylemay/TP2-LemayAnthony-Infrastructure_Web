@@ -37,7 +37,7 @@ class modele_chalets {
     /***
      * Fonction permettant de récupérer l'ensemble des chalets 
      */
-    public static function getDealChalets() {
+    public static function getDealFlash() {
         $liste = [];
         $mysqli = Db::connecterDB_1();
         $resultatRequete = $mysqli->query(
@@ -45,6 +45,32 @@ class modele_chalets {
         WHERE promo = 1 AND actif = 1  
         ORDER BY RAND()
         LIMIT 6;        
+        ");
+
+        foreach ($resultatRequete as $enregistrement) {
+            $liste [] = new modele_chalets(
+                $enregistrement['id'],
+                $enregistrement['nom'],
+                $enregistrement['description'],
+                $enregistrement['personnes_max'],
+                $enregistrement['prix_haute_saison'],
+                $enregistrement['prix_basse_saison'],
+                $enregistrement['actif'],
+                $enregistrement['promo'],
+                $enregistrement['date_inscription'],
+                $enregistrement['fk_region'],
+                $enregistrement['id_picsum']);
+        }
+        return $liste;
+    }
+
+    public static function getAllDeals() {
+        $liste = [];
+        $mysqli = Db::connecterDB_1();
+        $resultatRequete = $mysqli->query(
+        "SELECT * FROM chalets 
+        WHERE promo = 1 AND actif = 1  
+        ORDER BY nom ASC;       
         ");
 
         foreach ($resultatRequete as $enregistrement) {

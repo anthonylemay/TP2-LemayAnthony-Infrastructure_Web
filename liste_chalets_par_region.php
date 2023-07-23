@@ -20,6 +20,7 @@ if (isset($_GET['id']) && !is_numeric($_GET['id'])) {
          $controllerRegion->afficherRegion();
          $controllerChalet->afficherChaletsParRegion();
      ?>
+ 
     </body>
 </main>
 

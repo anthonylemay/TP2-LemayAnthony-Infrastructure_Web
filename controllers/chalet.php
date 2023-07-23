@@ -3,9 +3,14 @@
 require_once (__DIR__ . '/../models/chalet.php');
 
 class ControllerChalets {
-    function afficherDealsChalets() {
-        $chalets = modele_chalets::getDealChalets();
-        require  __DIR__ . '/../vues/chalets/chaletsDeals.php';
+    function afficherDealFlash() { // Flash Deal - Vacances constructions! 
+        $chalets = modele_chalets::getDealFlash();
+        require  __DIR__ . '/../vues/chalets/chaletsDealFlash.php';
+    }
+
+    function afficherAllDeals() {
+        $chalets = modele_chalets::getAllDeals();
+        require  __DIR__ . '/../vues/chalets/chaletsAllDeals.php';
     }
 
     function afficherChaletsParRegion() {
