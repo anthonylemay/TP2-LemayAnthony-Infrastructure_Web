@@ -33,6 +33,21 @@ class ControllerChalets {
         require  __DIR__ . '/../vues/chalets/chaletsActifs.php';
     }
 
+    function afficherChalet() {
+        if(isset($_GET["id"])) {
+            $chalet = modele_chalets::getOneChalet($_GET["id"]);
+            if($chalet) {
+                require __DIR__ . '/../vues/chalets/chaletIndividuel.php';
+            } else {
+                $erreur = "Aucun chalet trouvée";
+                require './vues/erreur.php';
+            }
+        } else {
+            $erreur = "Aucun chalet n'a été sélectionné. Veuillez s.v.p. Réessayer.";
+            require './vues/erreur.php';
+        }
+    }
+
 
 }
 

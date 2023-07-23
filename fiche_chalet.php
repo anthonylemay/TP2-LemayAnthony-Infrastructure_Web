@@ -1,12 +1,24 @@
+<?php 
 
+include_once __DIR__ . '/vues/header.php';
+require_once __DIR__ . '/controllers/chalet.php';
 
-<!-- Cette page doit être utilisée pour affiher la fiche détaillée d'un chalet -->
-<!-- Elle est volontairement vide, c'est à vous de la construire -->
+if (isset($_GET['id']) && !is_numeric($_GET['id'])) {
+    header('Location: index.php');
+    exit;
+}
 
-<!-- La mise en forme est à votre discrétion. -->
-<!-- Les informations à afficher sont le nom du chalet, la date (format de votre choix), la
-description longue, et le prix -->
+?>
 
+<main>
+    <body>
+     
+     <?php
+         $controllerChalet=new ControllerChalets;
+         $controllerChalet->afficherChalet();
+     ?>
+ 
+    </body>
+</main>
 
-<!-- Assurez-vous que la page affiche l'entête et le pied de page, comme les autres pages -->
-
+<?php include_once __DIR__ . '/vues/footer.php'; ?>

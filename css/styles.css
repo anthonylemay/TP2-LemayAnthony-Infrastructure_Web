@@ -347,10 +347,20 @@ input:focus {
 .cardPromo img{
     border-radius: 1rem;
     max-width: 100%;
+    margin: .5rem;
 }
 
 .cardPromo h3, .cardPromo h4{
         max-width: 100%;;
+}
+
+.cardPromo h1{
+    max-width: 80%;
+}
+
+.cardPromo p{
+    max-width: 75%;
+    text-align:center;
 }
 
 .cardPromo a.cardButton{

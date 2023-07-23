@@ -169,5 +169,43 @@ class modele_chalets {
         }
         return $liste;
     }
+
+    public static function getOneChalet($id) {
+        $mysqli = Db::connecterDB_1();
+
+        if ($requete = $mysqli->prepare("SELECT * FROM chalets WHERE id=?")) {  // Création d'une requête préparée 
+            $requete->bind_param("i", $id); // Envoi des paramètres à la requête
+
+            $requete->execute(); // Exécution de la requête
+
+            $result = $requete->get_result(); // Récupération de résultats de la requête¸
+            
+            if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                $chalet = new modele_chalets(
+                $enregistrement['id'],
+                $enregistrement['nom'],
+                $enregistrement['description'],
+                $enregistrement['personnes_max'],
+                $enregistrement['prix_haute_saison'],
+                $enregistrement['prix_basse_saison'],
+                $enregistrement['actif'],
+                $enregistrement['promo'],
+                $enregistrement['date_inscription'],
+                $enregistrement['fk_region'],
+                $enregistrement['id_picsum']);
+            } else {
+                //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                return null;
+            }   
+            
+            $requete->close(); // Fermeture du traitement 
+        } else {
+            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
+            echo $mysqli->error;
+            return null;
+        }
+
+        return $chalet;
+    }
 }
 ?>
