@@ -37,12 +37,12 @@ $menuRegionController = new RegionController();
             </ul>
           </li>
           <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>
-          <li><a href="module_personnel.php">Module personnel</a></li>
+          <li><a href="recettes.php">Recettes à partager</a></li>
           <li>
             <a href="administration_chalets.php">Administration &nbsp;<i class="arrow down"></i></a>
             <ul>
               <li><a href="administration_chalets.php">Chalets</a></li>
-              <li><a href="administration_module_personnel.php">Module personnel</a></li>
+              <li><a href="administration_module_personnel.php">Recettes à partager</a></li>
             </ul>
           </li>
       </ul>
