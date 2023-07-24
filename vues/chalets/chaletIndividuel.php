@@ -7,6 +7,7 @@
             <h4>De <?= $chalet->prix_basse_saison ?> $ à <?= $chalet->prix_haute_saison ?> $ / Nuit</h4>
             <h5>Jusqu'à <?= $chalet->personnes_max ?> chambreurs</h5>
             <a class="cardButton" href="#" target="_blank"><span>Planifiez votre séjour</span></a>
+            <h6>En location depuis le <?= $chalet->date_inscription ?>.</h6>
             </div>    
             <img src="https://picsum.photos/id/<?=$chalet->id_picsum?>/500" alt="photo du chalet #<?= $chalet->id ?>">
             <div class="cardPromoGal">

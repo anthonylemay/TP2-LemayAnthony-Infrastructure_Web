@@ -20,12 +20,12 @@ class ControllerChalets {
         require  __DIR__ . '/../vues/chalets/chaletsRegion.php';
         } else {
             $erreur = "Aucun chalet trouvé dans la région visée";
-            require './vues/erreur.php';
+            require __DIR__ . '/../vues/erreur.php';
         }
 
     } else {
         $erreur = "Sans région, nous ne pouvons vous afficher des chalets. Veuillez réessayer.";
-        require './vues/erreur.php';
+        require __DIR__ . '../vues/erreur.php';
     }
     }
     function afficherChaletsActifs() {
@@ -40,11 +40,11 @@ class ControllerChalets {
                 require __DIR__ . '/../vues/chalets/chaletIndividuel.php';
             } else {
                 $erreur = "Aucun chalet trouvée";
-                require './vues/erreur.php';
+                require __DIR__ . '/../vues/erreur.php';
             }
         } else {
             $erreur = "Aucun chalet n'a été sélectionné. Veuillez s.v.p. Réessayer.";
-            require './vues/erreur.php';
+            require __DIR__ . '/../vues/erreur.php';
         }
     }
 

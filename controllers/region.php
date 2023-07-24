@@ -5,7 +5,7 @@ require_once __DIR__ . '/../models/region.php';
 class RegionController {
     public function afficherMenuRegions() {
         $regions = regionModel::getAllRegions();
-        require __DIR__ . '/../vues/menu/listeRegion.php';
+        require __DIR__ . '/../vues/menu/menuRegions.php';
     }
     function afficherRegion() {
         if(isset($_GET["id"])) {
@@ -20,6 +20,11 @@ class RegionController {
             $erreur = "Aucune région n'a été sélectionnée. Veuillez s.v.p. Réessayer.";
             require './vues/erreur.php';
         }
+    }
+
+    function afficherListeRegions() {
+        $regions = regionModel::getAllRegions();
+        require  __DIR__ . '/../vues/regions/listeRegions.php';
     }
     
 }

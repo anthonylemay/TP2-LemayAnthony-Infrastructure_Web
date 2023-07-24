@@ -1,7 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 /* mise en page */
 html {
     margin:0;
@@ -299,15 +295,65 @@ input:focus {
 }
 
 
+
 .promoFlex{
     display:flex;
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    width:100%;
 
 
 }
+
+.cardFlex{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+
+.cardRegion{
+    padding: 1rem;
+    margin: 1rem;
+    background-color: lightgray;
+    border-radius: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width:40%;
+}
+
+.cardRegion img{
+    border-radius: 1rem;
+    max-width: 100%;
+    margin: .5rem;
+}
+
+.cardRegionInfo{
+    padding: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.cardRegion a.cardButton{
+    text-decoration: none;
+    padding: 1rem;
+    
+    background-color: black;
+    color: white;
+    border-radius: .25rem;
+}
+
+a.cardButton:hover{
+    background-color: white;
+    color: black;
+}
+
+
 
 .promoSlides{
     display:flex;
