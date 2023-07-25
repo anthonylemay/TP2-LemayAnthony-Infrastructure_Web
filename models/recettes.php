@@ -18,8 +18,6 @@ error_reporting(E_ALL);
             $this->id_type = $id_type;
         }
         
-        
-
 
         public static function getAllDejeuners() {
             $liste = [];
