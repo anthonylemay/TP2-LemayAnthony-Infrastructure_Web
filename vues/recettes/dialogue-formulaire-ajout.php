@@ -1,4 +1,5 @@
 <dialog id="dialogue-formulaire-ajout">
+<h1>Ajouter une recette</h1>
     <form method="POST">
         <div>
           <div>

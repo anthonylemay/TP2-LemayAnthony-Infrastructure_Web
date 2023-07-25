@@ -1,4 +1,5 @@
 <h2>Gestion des recettes</h2>
+<button onclick="ouvrirDialogueAjout()">Ajouter une Recette</button>
 <table class="table">
     <tr>
         <th>#</th>  

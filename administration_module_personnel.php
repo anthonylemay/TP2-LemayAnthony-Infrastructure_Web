@@ -24,4 +24,5 @@ if (isset($_POST['boutonAjouter'])) {
 	
     
 </main>
-  <?php include_once __DIR__ . '/vues/footer.php'; ?>
+  <?php include_once __DIR__ . '/vues/footer.php'; 
+  ?>

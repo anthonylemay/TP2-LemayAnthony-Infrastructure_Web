@@ -10,7 +10,6 @@ error_reporting(E_ALL);
         public $id_recette;
         public $nom_recette;
         public $type_repas;
-        public $id_type; 
         
         public function __construct($id_recette, $nom_recette, $type_repas, $id_type) {
             $this->id_recette = $id_recette;
@@ -18,13 +17,15 @@ error_reporting(E_ALL);
             $this->type_repas = $type_repas;
             $this->id_type = $id_type;
         }
+        
+        
 
 
         public static function getAllDejeuners() {
             $liste = [];
             $mysqli = Db::connecterDB_2();
             $resultatRequete = $mysqli->query("
-                SELECT r.id_recette, r.nom_recette, t.type_repas
+                SELECT r.id_recette, r.nom_recette, r.id_type, t.type_repas
                 FROM recette r
                 INNER JOIN type t ON r.id_type = t.id_type
                 WHERE r.id_type = 2;
@@ -45,7 +46,7 @@ error_reporting(E_ALL);
             $liste = [];
             $mysqli = Db::connecterDB_2();
             $resultatRequete = $mysqli->query("
-                SELECT r.id_recette, r.nom_recette, t.type_repas
+                SELECT r.id_recette, r.nom_recette, r.id_type, t.type_repas
                 FROM recette r
                 INNER JOIN type t ON r.id_type = t.id_type
                 WHERE r.id_type = 3;
@@ -66,7 +67,7 @@ error_reporting(E_ALL);
             $liste = [];
             $mysqli = Db::connecterDB_2();
             $resultatRequete = $mysqli->query("
-                SELECT r.id_recette, r.nom_recette, t.type_repas
+                SELECT r.id_recette, r.nom_recette, r.id_type, t.type_repas
                 FROM recette r
                 INNER JOIN type t ON r.id_type = t.id_type
                 WHERE r.id_type = 7;
