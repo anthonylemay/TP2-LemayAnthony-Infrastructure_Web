@@ -10,6 +10,7 @@ class ControllerRecettes{
 
     function adminToutesRecettes() {
         $recettes = modele_recettes::getAllRecettes();
+        $types = modele_typesRepas::getAllTypeRepas();
         require  __DIR__ . '/../vues/recettes/gestionRecettes.php';
         require __DIR__ . '/../vues/recettes/dialogue-formulaire-ajout.php';
         require __DIR__ . '/../vues/recettes/dialogue-formulaire-edition.php';
@@ -76,8 +77,8 @@ class ControllerRecettes{
     }
 
      function ajouter() {
-        if(isset($_POST['nom_recette']) && isset($_POST['type_repas'])) {
-            $message = modele_recettes::ajouter($_POST['nom_recette'], $_POST['type_repas']);
+        if(isset($_POST['nom_recette']) && isset($_POST['type_repas']) && isset($_POST['temps_cuisson_recette'])) {
+            $message = modele_recettes::ajouter($_POST['nom_recette'], $_POST['type_repas'], $_POST['temps_cuisson_recette']);
             echo $message;
         } else {
             $erreur = "Impossible d'ajouter un produit. Des informations sont manquantes";
@@ -87,16 +88,16 @@ class ControllerRecettes{
 
     /***
      * Fonction permettant de modifier un produit
-     */
-    function editer() {
-        if(isset($_POST['id_recette']) && isset($_POST['nom_recette']) && isset($_POST['type_repas'])) {
-            $message = modele_recettes::editer($_POST['id_recette'], $_POST['nom_recette'], $_POST['type_repas']);
-            echo $message;
-        } else {
-            $erreur = "Impossible de modifier le produit. Des informations sont manquantes";
-            require __DIR__ . '/../vues/erreur.php';
-        }
+     */function editer() {
+    if(isset($_POST['id_recette']) && isset($_POST['nom_recette']) && isset($_POST['type_repas']) && isset($_POST['temps_cuisson_recette'])) {
+        $message = modele_recettes::editer($_POST['id_recette'], $_POST['nom_recette'], $_POST['type_repas'], $_POST['temps_cuisson_recette']);
+        echo $message;
+    } else {
+        $erreur = "Impossible de modifier le produit. Des informations sont manquantes";
+        require __DIR__ . '/../vues/erreur.php';
     }
+}
+
 
     /***
      * Fonction permettant de supprimer un produit

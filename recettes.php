@@ -7,7 +7,7 @@ require_once __DIR__ . '/controllers/recettes.php';
   <main>
   
 	<h1>Recettes à partager</h1>	
-    <p>Voici notre liste soigneusement sélectionnée de recettes idéales à concocter au chalet pour partager avec vos amis et votre famille.</p>
+    <p>Voici notre liste soigneusement sélectionnée de recettes, triées par type (déjeuners, repas et desserts) idéales à concocter au chalet pour partager avec vos amis et votre famille.</p>
     
     <?php
       $controllerRecette=new ControllerRecettes;

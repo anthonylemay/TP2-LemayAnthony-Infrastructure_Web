@@ -8,9 +8,9 @@
             <input type="text" id="nom_recette" name="nom_recette" required maxlength="50">
           </div>
           <div>
-            <label for="ajout_id_recette">ID de la recette *</label>
+            <label for="temps_cuisson_recette">Temps de cuisson *</label>
             <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-            <input type="number" step="1" id="ajout_id_recette" name="id_recette" required max="9999">
+            <input type="text" id="temps_cuisson_recette" name="temps_cuisson_recette" required maxlength="20">
           </div>
         </div>
         <div>

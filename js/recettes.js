@@ -30,7 +30,8 @@ function ouvrirDialogueEdition(id) {
         console.log(recette);
         if (recette) {
             document.getElementById("dialogue-formulaire-edition-nom_recette").value = recette.nom_recette;
-            document.getElementById("dialogue-formulaire-edition-id_recette").value = recette.id_recette;
+            document.getElementById("dialogue-formulaire-edition-id").value = recette.id_recette;
+            document.getElementById("dialogue-formulaire-edition-temps_cuisson_recette").value = recette.temps_cuisson_recette;
             document.getElementById("dialogue-formulaire-edition-type_repas").value = recette.id_type;
 
             dialogue.showModal();

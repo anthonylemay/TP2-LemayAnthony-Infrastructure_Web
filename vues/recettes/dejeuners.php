@@ -3,7 +3,8 @@
     <tr>
         <th>#</th>  
         <th>Type</th>       
-        <th>Recette</th>    
+        <th>Recette</th> 
+        <th>Temps de cuisson</th>    
     </tr>
 
     <?php
@@ -13,6 +14,7 @@
             <td><?= $dejeuner->id_recette ?></td>
             <td><?= $dejeuner->type_repas ?></td>
             <td><?= $dejeuner->nom_recette ?></td>
+            <td><?= $dejeuner->temps_cuisson_recette?></td>
         </tr>
     <?php
         }

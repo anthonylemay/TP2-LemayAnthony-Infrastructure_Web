@@ -8,10 +8,11 @@
             <input type="text" id="dialogue-formulaire-edition-nom_recette" name="nom_recette" required maxlength="50">
           </div>
           <div>
-            <label for="id_recette">ID de la recette *</label>
-            <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
-            <input type="number" step="1" id="dialogue-formulaire-edition-id_recette" name="id_recette" required max="9999">
+          <label for="temps_cuisson_recette">Temps de cuisson *</label>
+          <!-- Attention! Vos validations doivent être cohérentes avec le champ correspondant dans la BD! -->
+          <input type="text" id="dialogue-formulaire-edition-temps_cuisson_recette" name="temps_cuisson_recette" required maxlength="20">
           </div>
+
     </div>
         <div>
           <div>
@@ -24,6 +25,7 @@
 
         <button name="boutonEditer" type="submit">Modifier le produit</button>
         <button type="button" onclick="this.closest('dialog').close()">Annuler</button>
-        <input type="hidden" id="dialogue-formulaire-edition-id" name="id" value="">
+        <input type="hidden" id="dialogue-formulaire-edition-id" name="id_recette" value="">
+
     </form>                         
 </dialog>
