@@ -2,7 +2,7 @@
   <div>
     <div>
       Voulez-vous vraiment supprimer cette recette?
-      <h3><b>Recette<span id="dialogue-suppression-nom"></span></b></h3>
+      <h3><span id="dialogue-suppression-nom"></span></h3>
     </div>
   </div>
 
