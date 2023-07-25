@@ -14,7 +14,6 @@ class Db {
             echo "Échec de connexion à la base de données MySQL: " . $mysqli->connect_error;
             exit();
         }
-        console_log("Connection à la base de données des Chalets réussie");
         return $mysqli;
     }
 
@@ -26,7 +25,6 @@ class Db {
             echo "Échec de connexion à la base de données MySQL: " . $mysqli->connect_error;
             exit();
         }
-        console_log("Connection à la base de données des Recettes réussie");
         return $mysqli;
     }
 }

@@ -9,9 +9,7 @@ require_once __DIR__ . '/controllers/recettes.php';
 	<h1>Administration - Recettes</h1>	  
     <?php
       $controllerRecette=new ControllerRecettes;
-      $controllerRecette->adminDejeuners();
-      $controllerRecette->adminRepas();
-      $controllerRecette->adminDesserts();
+      $controllerRecette->adminToutesRecettes();
 
     ?>
 	

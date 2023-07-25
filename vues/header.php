@@ -18,8 +18,8 @@ $menuRegionController = new RegionController();
   <meta name="author" content="">
 
   <title>Chalets Locatifs</title>
-  
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/recettes.js" defer></script>
 </head>
 
 <body class="light-mode">

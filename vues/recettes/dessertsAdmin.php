@@ -4,8 +4,7 @@
         <th>#</th>  
         <th>Type</th>       
         <th>Recette</th>
-        <th>Modifier</th>  
-        <th>Supprimer</th>      
+        <th>Gestion</th>     
     </tr>
 
     <?php
@@ -15,8 +14,10 @@
             <td><?= $dessert->id_recette ?></td>
             <td><?= $dessert->type_repas ?></td>
             <td><?= $dessert->nom_recette ?></td>
-                        <!--lien pour modifier-->
-            <!--lien pour modifier-->
+            <td>
+            <button onclick="ouvrirDialogueEdition(<?= $dessert->id_recette ?>)">Modifier</button>
+                <button onclick="ouvrirDialogueSuppression(<?= $dessert->id_recette ?>)">Supprimer</button>
+            </td>
         </tr>
     <?php
         }

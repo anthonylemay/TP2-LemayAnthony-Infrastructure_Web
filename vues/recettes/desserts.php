@@ -13,6 +13,7 @@
             <td><?= $dessert->id_recette ?></td>
             <td><?= $dessert->type_repas ?></td>
             <td><?= $dessert->nom_recette ?></td>
+            
         </tr>
     <?php
         }

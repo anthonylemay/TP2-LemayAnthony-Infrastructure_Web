@@ -1,0 +1,67 @@
+/*function ouvrirDialogueFiche(id) {
+    console.log('appel de la méthode ouvrirDialogueFiche'); 
+    console.log(id); // Pour débogage
+    dialogue = document.getElementById("dialogue-fiche");
+    
+    const recette = getRecette(id).then(recette => { 
+        console.log(recette);
+        if (recette) {
+            document.getElementById("dialogue-fiche-nom_recette").textContent = recette.nom_recette;
+            document.getElementById("dialogue-fiche-type_recette").textContent = recette.type_repas;
+            dialogue.showModal();
+        }   else {
+            console.error("Un ou plusieurs éléments non trouvés dans le DOM.");
+        }
+    });
+    
+} */
+
+function ouvrirDialogueAjout() {
+    console.log('appel de la méthode ouvrirDialogueAjout'); 
+    dialogue = document.getElementById("dialogue-formulaire-ajout");
+    dialogue.showModal();
+}
+
+function ouvrirDialogueEdition(id) {
+    console.log('appel de la méthode ouvrirDialogueEdition'); 
+    console.log(id); // Pour débogage
+    dialogue = document.getElementById("dialogue-formulaire-edition");
+    const recette = getRecette(id).then(recette => {
+        console.log(recette);
+        if (recette) {
+            document.getElementById("dialogue-formulaire-edition-nom_recette").value = recette.nom_recette;
+            document.getElementById("dialogue-formulaire-edition-id_recette").value = recette.id_recette;
+            console.log("Type repas from API: ", recette.type_repas);
+            document.getElementById("dialogue-formulaire-edition-type_repas").value = recette.type_repas;
+
+            dialogue.showModal();
+        }
+    });
+}
+
+function ouvrirDialogueSuppression(id) {
+    console.log('appel de la méthode ouvrirDialogueSuppression'); 
+    console.log(id); // Pour débogage
+    dialogue = document.getElementById("dialogue-formulaire-suppression");
+    
+    const recette = getRecette(id).then(recette => {
+        console.log(recette);
+        if (recette) {
+            document.getElementById("dialogue-suppression-nom").textContent = recette.nom_recette;
+            document.getElementById("dialogue-formulaire-suppression-id").value = recette.id_recette;
+            dialogue.showModal();
+        }
+    });
+}
+
+
+async function getRecette(id) {
+    let response = await fetch('api/recettes/?id=' + id);
+        
+    if (response.ok) {
+        return await response.json();   // retourne le recette
+    } else {
+        alert("Il y a eu un problème avec l'opération fetch. Voir la console pour plus de détails ");
+        console.log(await response.json()); // affiche l'erreur
+    }
+}
