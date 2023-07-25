@@ -13,7 +13,7 @@
             </div>
             <h3><?= $chalet->nom ?></h3>       
             <h4>À partir de <?= $chalet->prix_basse_saison?> $ / Nuit</h3>    
-            <a class="cardButton" href="fiche_chalet.php?id=<?= $chalet->id ?>" target="_blank"><span>Pour en savoir plus</span></a>
+            <a class="cardButton" href="fiche_chalet.php?id=<?= $chalet->id ?>"><span>Pour en savoir plus</span></a>
             </div>      
         </div>
         <?php

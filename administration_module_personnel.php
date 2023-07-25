@@ -1,9 +1,15 @@
 <?php
-
+  $title = 'Administration - Recettes';
 include_once __DIR__ . '/vues/header.php';
+if (!isset($_SESSION["utilisateur"])) {
+  header('Location: 404.php');
+
+}
+
 require_once __DIR__ . '/controllers/recettes.php';
 
 $controllerRecette = new ControllerRecettes;
+
 
 if (isset($_POST['boutonAjouter'])) {        
     $controllerRecette->ajouter();

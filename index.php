@@ -2,7 +2,7 @@
   ini_set('display_errors', 1);
   ini_set('display_startup_errors', 1);
   error_reporting(E_ALL);
-
+  $title = 'Accueil - Chalets';
   include_once __DIR__ . '/vues/header.php';
   include_once __DIR__ . '/controllers/chalet.php';
   

@@ -1,5 +1,5 @@
 <?php
-
+  $title = 'Recettes à partager';
 include_once __DIR__ . '/vues/header.php';
 require_once __DIR__ . '/controllers/recettes.php';
 ?>

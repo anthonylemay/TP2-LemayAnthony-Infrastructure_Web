@@ -1,4 +1,14 @@
-<?php   include_once __DIR__ . '/vues/header.php'; ?>
+<?php
+  $title = 'Administration - Chalets';
+  include_once __DIR__ . '/vues/header.php';
+  if (!isset($_SESSION["utilisateur"])) {
+    header('Location: 404.php');
+	
+}
+
+
+
+?>
 
   <main>
   

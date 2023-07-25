@@ -1,5 +1,5 @@
 <?php 
-
+  $title = 'Fiche du chalet';
 include_once __DIR__ . '/vues/header.php';
 require_once __DIR__ . '/controllers/chalet.php';
 

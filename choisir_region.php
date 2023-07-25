@@ -1,5 +1,6 @@
-<?php   include_once __DIR__ . '/vues/header.php';
-
+<?php  
+  $title = 'Choisir sa Région';
+include_once __DIR__ . '/vues/header.php';
 require_once __DIR__ . '/controllers/region.php';
 ?>
 

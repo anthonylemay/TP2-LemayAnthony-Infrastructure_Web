@@ -1,10 +1,16 @@
 <?php
-
+  session_start();
 // require_once __DIR__ . '/../controllers/test.php'; // DEBUG pour regarder si le lien entre models / config fonctionne.
  
 require_once __DIR__ . '/../controllers/region.php';
+require_once __DIR__ . '/../controllers/authentification.php';
 $menuRegionController = new RegionController();
-
+$controllerAuthentification=new ControllerAuthentification;
+if (isset($_POST['connexionSubmit'])) {        
+  $controllerAuthentification->connecter();
+} else if (isset($_POST['deconnexionSubmit'])) {        
+  $controllerAuthentification->deconnecter();
+}
 
 ?>
 
@@ -16,8 +22,8 @@ $menuRegionController = new RegionController();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <title><?=$title ?></title>
 
-  <title>Chalets Locatifs</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/recettes.js" defer></script>
 </head>
@@ -25,7 +31,7 @@ $menuRegionController = new RegionController();
 <body class="light-mode">
   <!-- Navigation -->
   <header>
-    <nav class="container">
+    <nav class="containerMenu">
       <img src="https://picsum.photos/id/13/80" alt="logo">
       <ul>
           <li><a href="index.php">Accueil</a></li>
@@ -38,6 +44,9 @@ $menuRegionController = new RegionController();
           </li>
           <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>
           <li><a href="recettes.php">Recettes à partager</a></li>
+          <?php
+          if (isset($_SESSION["utilisateur"])) {
+            ?>
           <li>
             <a href="administration_chalets.php">Administration &nbsp;<i class="arrow down"></i></a>
             <ul>
@@ -45,18 +54,27 @@ $menuRegionController = new RegionController();
               <li><a href="administration_module_personnel.php">Recettes à partager</a></li>
             </ul>
           </li>
+       <?php
+       }
+       ?>
+     <!-- Formulaire de connexion -->
+     <?php   if (!isset($_SESSION["utilisateur"])) {
+              //echo $messageErreurLogin;
+            ?> 
+      <button id="loginBtn" onclick="ouvrirDialogueConnexion()">Connexion</button>
+      <?php
+      } else {
+      ?>
+      <li class="loginFlex">
+            <span class="navbar-text">Bonjour <?php echo $_SESSION['utilisateur'];?></span>
+            <form method="post">
+            <button id="logoutBtn" type="submit" name="deconnexionSubmit" class="btn btn-sm btn-outline-primary">Déconnexion</button>
+            </form>
+      </li>
+      <?php  
+      }
+      ?>
       </ul>
-
-      <!-- Formulaire de connexion -->
-      <dialog id="dialog_login">         
-          <form>
-            <input type="text" placeholder="Utilisateur" >
-            <input type="password" placeholder="Mot de passe" >
-            <button>Connexion</button>
-            <button id="close" class="annuler" aria-label="close" formnovalidate onclick="document.getElementById('dialog_login').close();">Annuler</button>
-          </form>
-      </dialog>        
-      <button onclick="document.getElementById('dialog_login').showModal();">Connexion</button>
     </nav>
     <hr>
   </header>

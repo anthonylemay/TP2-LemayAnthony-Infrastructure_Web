@@ -22,6 +22,15 @@ function ouvrirDialogueAjout() {
     dialogue.showModal();
 }
 
+function ouvrirDialogueConnexion() {
+    console.log('ouvrirDialogueConnexion function has been called'); 
+    var dialogue = document.getElementById("dialog_login");
+    console.log('dialogue element:', dialogue);
+    dialogue.showModal();
+}
+
+
+
 function ouvrirDialogueEdition(id) {
     console.log('appel de la méthode ouvrirDialogueEdition'); 
     console.log(id); // Pour débogage
