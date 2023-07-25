@@ -10,12 +10,15 @@ error_reporting(E_ALL);
         public $id_recette;
         public $nom_recette;
         public $type_repas;
+        public $id_type; 
         
-        public function __construct($id_recette, $nom_recette, $type_repas) {
-            $this->id_recette = $id_recette;        
+        public function __construct($id_recette, $nom_recette, $type_repas, $id_type) {
+            $this->id_recette = $id_recette;
             $this->nom_recette = $nom_recette;
             $this->type_repas = $type_repas;
+            $this->id_type = $id_type;
         }
+
 
         public static function getAllDejeuners() {
             $liste = [];
@@ -30,7 +33,8 @@ error_reporting(E_ALL);
                 $dejeuners = new modele_recettes(
                     $enregistrement['id_recette'], 
                     $enregistrement['nom_recette'],
-                    $enregistrement['type_repas']
+                    $enregistrement['type_repas'],
+                    $enregistrement['id_type']
                 );
                 $liste[] = $dejeuners;
             }
@@ -50,7 +54,8 @@ error_reporting(E_ALL);
                 $repas = new modele_recettes(
                     $enregistrement['id_recette'], 
                     $enregistrement['nom_recette'],
-                    $enregistrement['type_repas']
+                    $enregistrement['type_repas'],
+                    $enregistrement['id_type']
                 );
                 $liste[] = $repas;
             }
@@ -70,7 +75,8 @@ error_reporting(E_ALL);
                 $desserts = new modele_recettes(
                     $enregistrement['id_recette'], 
                     $enregistrement['nom_recette'],
-                    $enregistrement['type_repas']
+                    $enregistrement['type_repas'],
+                    $enregistrement['id_type']
                 );
                 $liste[] = $desserts;
             }
@@ -81,12 +87,16 @@ error_reporting(E_ALL);
             $liste = [];
             $mysqli = Db::connecterDB_2();
     
-            $resultatRequete = $mysqli->query("SELECT r.id_recette, r.nom_recette, t.type_repas
+            $resultatRequete = $mysqli->query("SELECT r.id_recette, r.nom_recette, r.id_type, t.type_repas
             FROM recette r
             INNER JOIN type t ON r.id_type = t.id_type;");
             
             foreach ($resultatRequete as $enregistrement) {
-                $liste[] = new modele_recettes($enregistrement['id_recette'], $enregistrement['nom_recette'], $enregistrement['type_repas']);
+                $liste[] = new modele_recettes(
+                $enregistrement['id_recette'],
+                $enregistrement['nom_recette'],
+                $enregistrement['type_repas'],
+                $enregistrement['id_type']);
             }
     
             return $liste;
@@ -95,7 +105,7 @@ error_reporting(E_ALL);
         public static function getOneRecette($id_recette) {
             $mysqli = Db::connecterDB_2();
     
-            if ($requete = $mysqli->prepare("SELECT r.id_recette, r.nom_recette, t.type_repas
+            if ($requete = $mysqli->prepare("SELECT r.id_recette, r.nom_recette, t.type_repas, r.id_type
             FROM recette r
             INNER JOIN type t ON r.id_type = t.id_type
             WHERE r.id_recette = ?
@@ -106,7 +116,8 @@ error_reporting(E_ALL);
     
                 $result = $requete->get_result(); // Récupération de résultats de la requête¸
                 if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
-                    $recette = new modele_recettes($enregistrement['id_recette'], $enregistrement['nom_recette'], $enregistrement['type_repas']);
+                    $recette = new modele_recettes($enregistrement['id_recette'], $enregistrement['nom_recette'], $enregistrement['type_repas'], $enregistrement['id_type']);
+
 
                 } else {
                     echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage

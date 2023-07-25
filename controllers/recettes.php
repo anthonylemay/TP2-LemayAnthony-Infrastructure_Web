@@ -89,8 +89,8 @@ class ControllerRecettes{
      * Fonction permettant de modifier un produit
      */
     function editer() {
-        if(isset($_POST['id_recette']) && isset($_POST['type_repas']) && isset($_POST['nom_recette'])) {
-            $message = modele_recettes::editer($_POST['id_recette'],$_POST['type_repas'], $_POST['nom_recette']);
+        if(isset($_POST['id_recette']) && isset($_POST['nom_recette']) && isset($_POST['type_repas'])) {
+            $message = modele_recettes::editer($_POST['id_recette'], $_POST['nom_recette'], $_POST['type_repas']);
             echo $message;
         } else {
             $erreur = "Impossible de modifier le produit. Des informations sont manquantes";

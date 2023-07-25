@@ -31,8 +31,7 @@ function ouvrirDialogueEdition(id) {
         if (recette) {
             document.getElementById("dialogue-formulaire-edition-nom_recette").value = recette.nom_recette;
             document.getElementById("dialogue-formulaire-edition-id_recette").value = recette.id_recette;
-            console.log("Type repas from API: ", recette.type_repas);
-            document.getElementById("dialogue-formulaire-edition-type_repas").value = recette.type_repas;
+            document.getElementById("dialogue-formulaire-edition-type_repas").value = recette.id_type;
 
             dialogue.showModal();
         }
@@ -59,6 +58,7 @@ async function getRecette(id) {
     let response = await fetch('api/recettes/?id=' + id);
         
     if (response.ok) {
+        console.log('Recette:', response);
         return await response.json();   // retourne le recette
     } else {
         alert("Il y a eu un problème avec l'opération fetch. Voir la console pour plus de détails ");
