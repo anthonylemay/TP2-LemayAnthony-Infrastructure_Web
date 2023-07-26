@@ -1,6 +1,6 @@
 <?php
 $title = 'Administration - Chalets';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 if (!isset($_SESSION["utilisateur"])) {
 	header('Location: 404.php');
 
@@ -24,4 +24,4 @@ if (!isset($_SESSION["utilisateur"])) {
 		Si un utilisateur non connecté essaie d'accéder à la page, un message d'erreur doit s'afficher.
 	</p>
 </main>
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

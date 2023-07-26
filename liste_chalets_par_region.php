@@ -1,6 +1,6 @@
 <?php
 $title = 'Chalets par région';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 require_once __DIR__ . '/controllers/region.php';
 require_once __DIR__ . '/controllers/chalet.php';
 
@@ -20,8 +20,8 @@ if (isset($_GET['id']) && !is_numeric($_GET['id'])) {
     <body>
 
         <?php
-        $controllerRegion = new RegionController;
-        $controllerChalet = new ControllerChalets;
+        $controllerRegion = new ControllerRegion;
+        $controllerChalet = new ControllerChalet;
         $controllerRegion->afficherRegion();
         $controllerChalet->afficherChaletsParRegion();
         ?>
@@ -29,4 +29,4 @@ if (isset($_GET['id']) && !is_numeric($_GET['id'])) {
     </body>
 </main>
 
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

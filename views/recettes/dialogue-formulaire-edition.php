@@ -17,7 +17,7 @@
     <div>
       <div>
         <?php
-        $controleurRecettes = new ControllerRecettes;
+        $controleurRecettes = new ControllerRecette;
         $controleurRecettes->afficherListeTypeRepasEdit();
         ?>
       </div>

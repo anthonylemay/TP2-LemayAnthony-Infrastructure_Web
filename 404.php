@@ -1,6 +1,6 @@
 <?php
 $title = 'Page introuvable - 404';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 ?>
 
 <main>
@@ -12,4 +12,4 @@ include_once __DIR__ . '/vues/header.php';
     <a href="index.php">Retour à l'accueil</a>
   </p>
 </main>
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

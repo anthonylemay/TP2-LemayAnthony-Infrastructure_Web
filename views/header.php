@@ -4,7 +4,7 @@ session_start();
 
 require_once __DIR__ . '/../controllers/region.php';
 require_once __DIR__ . '/../controllers/authentification.php';
-$menuRegionController = new RegionController();
+$menuControllerRegion = new ControllerRegion();
 $controllerAuthentification = new ControllerAuthentification;
 if (isset($_POST['connexionSubmit'])) {
   $controllerAuthentification->connecter();
@@ -41,7 +41,7 @@ if (isset($_POST['connexionSubmit'])) {
         <li>
           <a href="liste_chalets_par_region.php">Chalets par région &nbsp;<i class="arrow down"></i></a>
           <ul>
-            <?php echo $menuRegionController->afficherMenuRegions(); ?>
+            <?php echo $menuControllerRegion->afficherMenuRegions(); ?>
           </ul>
         </li>
         <li><a href="liste_chalets_en_promotion.php">Chalets en promotion</a></li>
@@ -67,7 +67,7 @@ if (isset($_POST['connexionSubmit'])) {
         } else {
           ?>
           <li class="loginFlex">
-            <span class="navbar-text">Bonjour
+            <span class="navbar-text">Bonjour,
               <?php echo $_SESSION['utilisateur']; ?>
             </span>
             <form method="post">

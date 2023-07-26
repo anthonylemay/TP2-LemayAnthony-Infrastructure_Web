@@ -1,7 +1,7 @@
 <?php
 $title = 'Recettes à partager';
-include_once __DIR__ . '/vues/header.php';
-require_once __DIR__ . '/controllers/recettes.php';
+include_once __DIR__ . '/views/header.php';
+require_once __DIR__ . '/controllers/recette.php';
 ?>
 
 <main>
@@ -13,13 +13,12 @@ require_once __DIR__ . '/controllers/recettes.php';
       des breuvages et tous autres types de repas adaptés à votre groupe.</p>
   </div>
   <?php
-  $controllerRecette = new ControllerRecettes;
+  $controllerRecette = new ControllerRecette;
   $controllerRecette->afficherDejeuners();
   $controllerRecette->afficherRepas();
   $controllerRecette->afficherDesserts();
-
   ?>
 
   <!-- ca va surement prendre un controllerAdmin pour afficher aussi la version avec ajout , modifier, supprimer. Pt update celle ci pour que si on est admin = vue plus poussée, sinon vue standard ici présente.-->
 </main>
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

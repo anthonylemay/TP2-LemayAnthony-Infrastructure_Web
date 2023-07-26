@@ -3,13 +3,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $title = 'Accueil - Chalets';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 include_once __DIR__ . '/controllers/chalet.php';
 
 /* require_once __DIR__ . '/include/config.php';
 $db1 = Db::connecterDB_1();
 $db2 = Db::connecterDB_2();  *//*DEBUG LIEN BASE DE DONNÉE SI CA MARCHE*/
-$controllerChalets = new ControllerChalets();
+$ControllerChalet = new ControllerChalet();
 
 ?>
 
@@ -20,7 +20,7 @@ $controllerChalets = new ControllerChalets();
       <!-- Chalets sous forme de cartes -->
       <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
       <?php
-      $controllerChalets->afficherDealFlash();
+      $ControllerChalet->afficherDealFlash();
       ?>
     </div>
     <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir toutes nos promotions</span></a>
@@ -85,4 +85,4 @@ $controllerChalets = new ControllerChalets();
   </div>
 </main>
 
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

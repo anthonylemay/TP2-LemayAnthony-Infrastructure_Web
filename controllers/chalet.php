@@ -2,49 +2,49 @@
 
 require_once (__DIR__ . '/../models/chalet.php');
 
-class ControllerChalets {
+class ControllerChalet {
     function afficherDealFlash() { // Flash Deal - Vacances constructions! 
-        $chalets = modele_chalets::getDealFlash();
-        require  __DIR__ . '/../vues/chalets/chaletsDealFlash.php';
+        $chalets = ModelChalet::getDealFlash();
+        require  __DIR__ . '/../views/chalets/chaletsDealFlash.php';
     }
 
     function afficherAllDeals() {
-        $chalets = modele_chalets::getAllDeals();
-        require  __DIR__ . '/../vues/chalets/chaletsAllDeals.php';
+        $chalets = ModelChalet::getAllDeals();
+        require  __DIR__ . '/../views/chalets/chaletsAllDeals.php';
     }
 
     function afficherChaletsParRegion() {
         if(isset($_GET["id"])) {
-        $chalets = modele_chalets::getAllChaletsParRegion($_GET["id"]);
+        $chalets = ModelChalet::getAllChaletsParRegion($_GET["id"]);
         if($chalets){
-        require  __DIR__ . '/../vues/chalets/chaletsRegion.php';
+        require  __DIR__ . '/../views/chalets/chaletsRegion.php';
         } else {
             $erreur = "Aucun chalet trouvé dans la région visée";
-            require __DIR__ . '/../vues/erreur.php';
+            require __DIR__ . '/../views/erreur.php';
         }
 
     } else {
         $erreur = "Sans région, nous ne pouvons vous afficher des chalets. Veuillez réessayer.";
-        require __DIR__ . '../vues/erreur.php';
+        require __DIR__ . '../views/erreur.php';
     }
     }
     function afficherChaletsActifs() {
-        $chalets = modele_chalets::getChaletsActifs();
-        require  __DIR__ . '/../vues/chalets/chaletsActifs.php';
+        $chalets = ModelChalet::getChaletsActifs();
+        require  __DIR__ . '/../views/chalets/chaletsActifs.php';
     }
 
     function afficherChalet() {
         if(isset($_GET["id"])) {
-            $chalet = modele_chalets::getOneChalet($_GET["id"]);
+            $chalet = ModelChalet::getOneChalet($_GET["id"]);
             if($chalet) {
-                require __DIR__ . '/../vues/chalets/chaletIndividuel.php';
+                require __DIR__ . '/../views/chalets/chaletIndividuel.php';
             } else {
                 $erreur = "Aucun chalet trouvée";
-                require __DIR__ . '/../vues/erreur.php';
+                require __DIR__ . '/../views/erreur.php';
             }
         } else {
             $erreur = "Aucun chalet n'a été sélectionné. Veuillez s.v.p. Réessayer.";
-            require __DIR__ . '/../vues/erreur.php';
+            require __DIR__ . '/../views/erreur.php';
         }
     }
 

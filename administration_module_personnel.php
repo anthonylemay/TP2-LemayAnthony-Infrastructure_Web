@@ -1,14 +1,14 @@
 <?php
 $title = 'Administration - Recettes';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 if (!isset($_SESSION["utilisateur"])) {
   header('Location: 404.php');
 
 }
 
-require_once __DIR__ . '/controllers/recettes.php';
+require_once __DIR__ . '/controllers/recette.php';
 
-$controllerRecette = new ControllerRecettes;
+$controllerRecette = new ControllerRecette;
 
 
 if (isset($_POST['boutonAjouter'])) {
@@ -30,5 +30,5 @@ if (isset($_POST['boutonAjouter'])) {
 
 
 </main>
-<?php include_once __DIR__ . '/vues/footer.php';
+<?php include_once __DIR__ . '/views/footer.php';
 ?>

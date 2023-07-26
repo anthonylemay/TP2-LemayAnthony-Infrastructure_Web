@@ -1,6 +1,6 @@
 <?php
 $title = 'Choisir sa Région';
-include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/views/header.php';
 require_once __DIR__ . '/controllers/region.php';
 ?>
 
@@ -9,10 +9,10 @@ require_once __DIR__ . '/controllers/region.php';
   <body>
     <h1 class="my-4">Toutes les régions disponibles</h1>
     <?php
-    $chaletController = new RegionController();
+    $chaletController = new ControllerRegion();
     $chaletController->afficherListeRegions();
     ?>
   </body>
 </main>
 
-<?php include_once __DIR__ . '/vues/footer.php'; ?>
+<?php include_once __DIR__ . '/views/footer.php'; ?>

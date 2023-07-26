@@ -1,13 +1,13 @@
-function ouvrirDialogueAjout() {
-    //console.log('appel de la méthode ouvrirDialogueAjout'); 
-    dialogue = document.getElementById("dialogue-formulaire-ajout");
-    dialogue.showModal();
-}
-
 function ouvrirDialogueConnexion() {
     //console.log('ouvrirDialogueConnexion function has been called'); 
     var dialogue = document.getElementById("dialog_login");
     console.log('dialogue element:', dialogue);
+    dialogue.showModal();
+}
+
+function ouvrirDialogueAjout() {
+    //console.log('appel de la méthode ouvrirDialogueAjout'); 
+    dialogue = document.getElementById("dialogue-formulaire-ajout");
     dialogue.showModal();
 }
 
