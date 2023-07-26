@@ -1,5 +1,5 @@
 <?php
-require_once('../../controllers/recette.php');
+require_once(__DIR__ . '/../../controllers/recette.php');
 
 if($_SERVER['REQUEST_METHOD'] === 'GET') {
     $controleurRecette = new ControllerRecette();

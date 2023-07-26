@@ -6,9 +6,6 @@ $title = 'Accueil - Chalets';
 include_once __DIR__ . '/views/header.php';
 include_once __DIR__ . '/controllers/chalet.php';
 
-/* require_once __DIR__ . '/include/config.php';
-$db1 = Db::connecterDB_1();
-$db2 = Db::connecterDB_2();  *//*DEBUG LIEN BASE DE DONNÉE SI CA MARCHE*/
 $ControllerChalet = new ControllerChalet();
 
 ?>
