@@ -1,1 +1,3 @@
-<p>Désolé, une erreur est survenue: <?= $erreur ?></p>
+<p>Désolé, une erreur est survenue:
+    <?= $erreur ?>
+</p>

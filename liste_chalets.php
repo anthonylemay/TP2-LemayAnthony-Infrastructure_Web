@@ -1,17 +1,18 @@
 <?php
-  $title = 'Tous les chalets';
-  include_once __DIR__ . '/vues/header.php';
-  require_once __DIR__ . '/controllers/chalet.php';
+$title = 'Tous les chalets';
+include_once __DIR__ . '/vues/header.php';
+require_once __DIR__ . '/controllers/chalet.php';
 ?>
 
 <main>
-    <body>
+
+  <body>
     <h1 class="my-4">Tous les chalets actifs</h1>
-     <?php
-        $chaletController = new ControllerChalets();
-        $chaletController->afficherChaletsActifs();
-     ?>
-    </body>
+    <?php
+    $chaletController = new ControllerChalets();
+    $chaletController->afficherChaletsActifs();
+    ?>
+  </body>
 </main>
 
 <?php include_once __DIR__ . '/vues/footer.php'; ?>

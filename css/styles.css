@@ -462,3 +462,15 @@ td{
     border-spacing: 0;
     border-collapse: collapse;
 }
+
+.recetteFlex{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    text-align:center;
+    justify-content: center;
+}
+
+.textW{
+    width:75%;
+}

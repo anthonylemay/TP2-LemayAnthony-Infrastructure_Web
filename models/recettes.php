@@ -123,13 +123,13 @@ error_reporting(E_ALL);
             FROM recette r
             INNER JOIN type t ON r.id_type = t.id_type
             WHERE r.id_recette = ?;
-            ")) {  // Création d'une requête préparée 
-                $requete->bind_param("i", $id_recette); // Envoi des paramètres à la requête
+            ")) {
+                $requete->bind_param("i", $id_recette);
     
-                $requete->execute(); // Exécution de la requête
+                $requete->execute();
     
-                $result = $requete->get_result(); // Récupération de résultats de la requête¸
-                if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                $result = $requete->get_result();
+                if($enregistrement = $result->fetch_assoc()) {
                     $recette = new modele_recettes(
                         $enregistrement['id_recette'],
                         $enregistrement['nom_recette'],
@@ -139,14 +139,14 @@ error_reporting(E_ALL);
 
 
                 } else {
-                    echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                    //echo "Erreur: Aucun enregistrement trouvé.";
                     return null;
                 }   
                 
                 $requete->close(); // Fermeture du traitement 
             } else {
-                echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
-                echo $mysqli->error;
+                /*echo "Une erreur a été détectée dans la requête utilisée : ";
+                echo $mysqli->error;*/
                 return null;
             }
     
@@ -158,23 +158,21 @@ error_reporting(E_ALL);
 
         $mysqli = Db::connecterDB_2();
         
-        // Création d'une requête préparée
         if ($requete = $mysqli->prepare("INSERT INTO recette(nom_recette, id_type, temps_cuisson_recette) VALUES(?, ?, ?)")) {      
 
         $requete->bind_param("sis", $nom_recette, $type_repas, $temps_cuisson_recette);
 
-        if($requete->execute()) { // Exécution de la requête
-            $message = "Recette ajoutée";  // Message ajouté dans la page en cas d'ajout réussi
+        if($requete->execute()) {
+            $message = "Recette ajoutée";
         } else {
-            $message =  "Une erreur est survenue lors de l'ajout: " . $requete->error;  // Message ajouté dans la page en cas d’échec
+            $message =  "Une erreur est survenue lors de l'ajout: " . $requete->error;
         }
 
-        $requete->close(); // Fermeture du traitement
+        $requete->close();
 
         } else  {
-            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
-            echo $mysqli->error;
-            echo "<br>";
+            /*echo "Une erreur a été détectée dans la requête utilisée : ";
+            echo $mysqli->error;*/
             exit();
         }
 
@@ -186,23 +184,22 @@ error_reporting(E_ALL);
     
         $mysqli = Db::connecterDB_2();
         
-        // Création d'une requête préparée
         if ($requete = $mysqli->prepare("UPDATE recette SET nom_recette=?, id_type=?, temps_cuisson_recette=? WHERE id_recette=?")) {          
     
         $requete->bind_param("sisi", $nom_recette, $type_repas, $temps_cuisson_recette, $id_recette);
     
-        if($requete->execute()) { // Exécution de la requête
-            $message = "Recette modifiée";  // Message ajouté dans la page en cas d'ajout réussi
+        if($requete->execute()) {
+            $message = "Recette modifiée";
         } else {
-            $message =  "Une erreur est survenue lors de l'édition: " . $requete->error;  // Message ajouté dans la page en cas d’échec
+            $message =  "Une erreur est survenue lors de l'édition: " . $requete->error;
         }
     
-        $requete->close(); // Fermeture du traitement
+        $requete->close();
     
         } else  {
-            echo "Une erreur a été détectée dans la requête utilisée : ";
+            /*echo "Une erreur a été détectée dans la requête utilisée : ";
             echo $mysqli->error;
-            echo "<br>";
+            echo "<br>";*/
             exit();
         }
     
@@ -215,23 +212,22 @@ error_reporting(E_ALL);
 
         $mysqli = Db::connecterDB_2();
         
-        // Création d'une requête préparée
         if ($requete = $mysqli->prepare("DELETE FROM recette WHERE id_recette=?")) {      
 
         $requete->bind_param("i", $id_recette);
 
-        if($requete->execute()) { // Exécution de la requête
-            $message = "Recette supprimée";  // Message ajouté dans la page en cas d'ajout réussi
+        if($requete->execute()) {
+            $message = "Recette supprimée";
         } else {
-            $message =  "Une erreur est survenue lors de la suppression: " . $requete->error;  // Message ajouté dans la page en cas d’échec
+            $message =  "Une erreur est survenue lors de la suppression: " . $requete->error;
         }
 
-        $requete->close(); // Fermeture du traitement
+        $requete->close();
 
         } else  {
-            echo "Une erreur a été détectée dans la requête utilisée : ";
+            /*echo "Une erreur a été détectée dans la requête utilisée : ";
             echo $mysqli->error;
-            echo "<br>";
+            echo "<br>";*/
             exit();
         }
         return $message;

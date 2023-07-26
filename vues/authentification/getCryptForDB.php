@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 $mot_de_passe = "test";

@@ -14,9 +14,7 @@ class modele_chalets {
     public $date_inscription;
     public $fk_region;
     public $id_picsum;
-    /***
-     * Fonction permettant de construire un objet de type modele_chalet
-     */
+
     public function __construct($id, $nom, $description, $personnes_max, $prix_haute_saison, $prix_basse_saison, $actif, $promo, $date_inscription, $fk_region, $id_picsum) {
         $this->id = $id;
         $this->nom = $nom;
@@ -31,12 +29,6 @@ class modele_chalets {
         $this->id_picsum = $id_picsum;
     }
 
-    /***
-     * Fonction permettant de se connecter à la base de données
-     */
-    /***
-     * Fonction permettant de récupérer l'ensemble des chalets 
-     */
     public static function getDealFlash() {
         $liste = [];
         $mysqli = Db::connecterDB_1();
@@ -144,10 +136,10 @@ class modele_chalets {
         $mysqli = Db::connecterDB_1();
         if ($requete = $mysqli->prepare("SELECT * FROM chalets WHERE chalets.fk_region=? AND actif = 1  
         ORDER BY nom ASC;")) { 
-        $requete->bind_param("i", $id); // Envoi des paramètres à la requête
-        $requete->execute(); // Exécution de la requête
-        $resultatRequete = $requete->get_result(); // Récupération de résultats de la requête¸
-        while($enregistrement = $resultatRequete->fetch_assoc()) { // Récupération de l'enregistrement
+        $requete->bind_param("i", $id);
+        $requete->execute();
+        $resultatRequete = $requete->get_result();
+        while($enregistrement = $resultatRequete->fetch_assoc()) {
             $liste [] = new modele_chalets(
                 $enregistrement['id'],
                 $enregistrement['nom'],
@@ -163,8 +155,8 @@ class modele_chalets {
         }
         $requete->close();
         }   else {
-            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
-            echo $mysqli->error;
+            /*echo "Une erreur a été détectée dans la requête utilisée : ";
+            echo $mysqli->error;*/
             return null;
         }
         return $liste;
@@ -173,14 +165,14 @@ class modele_chalets {
     public static function getOneChalet($id) {
         $mysqli = Db::connecterDB_1();
 
-        if ($requete = $mysqli->prepare("SELECT * FROM chalets WHERE id=?")) {  // Création d'une requête préparée 
-            $requete->bind_param("i", $id); // Envoi des paramètres à la requête
+        if ($requete = $mysqli->prepare("SELECT * FROM chalets WHERE id=?")) {
+            $requete->bind_param("i", $id);
 
-            $requete->execute(); // Exécution de la requête
+            $requete->execute();
 
-            $result = $requete->get_result(); // Récupération de résultats de la requête¸
+            $result = $requete->get_result();
             
-            if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+            if($enregistrement = $result->fetch_assoc()) {
                 $chalet = new modele_chalets(
                 $enregistrement['id'],
                 $enregistrement['nom'],
@@ -194,14 +186,14 @@ class modele_chalets {
                 $enregistrement['fk_region'],
                 $enregistrement['id_picsum']);
             } else {
-                //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                //echo "Erreur: Aucun enregistrement trouvé.";
                 return null;
             }   
             
-            $requete->close(); // Fermeture du traitement 
+            $requete->close();
         } else {
-            echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
-            echo $mysqli->error;
+            /*echo "Une erreur a été détectée dans la requête utilisée : ";
+            echo $mysqli->error;*/
             return null;
         }
 

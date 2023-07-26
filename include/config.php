@@ -28,10 +28,4 @@ class Db {
         return $mysqli;
     }
 }
-
-function console_log($message) {
-    echo '<script>';
-    echo 'console.log(' . json_encode($message) . ')';
-    echo '</script>';
-}
 ?>

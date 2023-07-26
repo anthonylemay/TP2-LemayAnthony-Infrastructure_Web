@@ -25,24 +25,24 @@
         public static function ObtenirUne($id) {
             $mysqli = Db::connecterDB_1();
     
-            if ($requete = $mysqli->prepare("SELECT * FROM regions WHERE id=?")) {  // Création d'une requête préparée 
-                $requete->bind_param("i", $id); // Envoi des paramètres à la requête
+            if ($requete = $mysqli->prepare("SELECT * FROM regions WHERE id=?")) {
+                $requete->bind_param("i", $id);
     
-                $requete->execute(); // Exécution de la requête
+                $requete->execute(); 
     
-                $result = $requete->get_result(); // Récupération de résultats de la requête¸
+                $result = $requete->get_result();
                 
-                if($enregistrement = $result->fetch_assoc()) { // Récupération de l'enregistrement
+                if($enregistrement = $result->fetch_assoc()) { 
                     $region = new regionModel($enregistrement['id'], $enregistrement['nom']);
                 } else {
-                    //echo "Erreur: Aucun enregistrement trouvé.";  // Pour fins de débogage
+                    //echo "Erreur: Aucun enregistrement trouvé.";
                     return null;
                 }   
                 
-                $requete->close(); // Fermeture du traitement 
+                $requete->close();
             } else {
-                echo "Une erreur a été détectée dans la requête utilisée : ";   // Pour fins de débogage
-                echo $mysqli->error;
+                /*echo "Une erreur a été détectée dans la requête utilisée : ";
+                echo $mysqli->error;*/
                 return null;
             }
     

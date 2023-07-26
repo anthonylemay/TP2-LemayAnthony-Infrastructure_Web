@@ -1,30 +1,30 @@
 <?php
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
-  $title = 'Accueil - Chalets';
-  include_once __DIR__ . '/vues/header.php';
-  include_once __DIR__ . '/controllers/chalet.php';
-  
-  /* require_once __DIR__ . '/include/config.php';
-  $db1 = Db::connecterDB_1();
-  $db2 = Db::connecterDB_2();  */ /*DEBUG LIEN BASE DE DONNÉE SI CA MARCHE*/
-  $controllerChalets = new ControllerChalets();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$title = 'Accueil - Chalets';
+include_once __DIR__ . '/vues/header.php';
+include_once __DIR__ . '/controllers/chalet.php';
+
+/* require_once __DIR__ . '/include/config.php';
+$db1 = Db::connecterDB_1();
+$db2 = Db::connecterDB_2();  *//*DEBUG LIEN BASE DE DONNÉE SI CA MARCHE*/
+$controllerChalets = new ControllerChalets();
 
 ?>
 
 <main>
   <div class="flexAccueil">
-    <h1>Promotion des vacances de la construction!</h1> 
+    <h1>Promotion des vacances de la construction!</h1>
     <div class="flex">
-    <!-- Chalets sous forme de cartes -->
-    <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
-    <?php  
-    $controllerChalets->afficherDealFlash();
-    ?>
+      <!-- Chalets sous forme de cartes -->
+      <!-- Affiche 6 chalets ACTIFS et en PROMOTION en ordre aléatoire. Indice : https://www.mysqltutorial.org/select-random-records-database-table.aspx  -->
+      <?php
+      $controllerChalets->afficherDealFlash();
+      ?>
     </div>
-    <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir toutes nos promotions</span></a> 
-    <h2>Autres coups de coeurs</h2> 
+    <a class="lienAccueil" href="liste_chalets_en_promotion.php"><span>Voir toutes nos promotions</span></a>
+    <h2>Autres coups de coeurs</h2>
     <div class="flex">
 
       <div class="card">
@@ -81,7 +81,7 @@
         </div>
       </div>
     </div>
-    <a class="lienAccueil" href="liste_chalets.php"><span>Voir tous les chalets</span></a> 
+    <a class="lienAccueil" href="liste_chalets.php"><span>Voir tous les chalets</span></a>
   </div>
 </main>
 

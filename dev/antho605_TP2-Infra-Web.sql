@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : lun. 03 juil. 2023 à 21:54
--- Version du serveur : 8.0.28
--- Version de PHP : 7.4.29
+-- Host: localhost
+-- Generation Time: Jul 25, 2023 at 11:46 PM
+-- Server version: 8.0.31
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,19 +18,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `projet_final_2023`
+-- Database: `antho605_TP2-Infra-Web`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `chalets`
+-- Table structure for table `chalets`
 --
 
 CREATE TABLE `chalets` (
   `id` int NOT NULL,
-  `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `personnes_max` int NOT NULL,
   `prix_haute_saison` int NOT NULL,
   `prix_basse_saison` int NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `chalets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `chalets`
+-- Dumping data for table `chalets`
 --
 
 INSERT INTO `chalets` (`id`, `nom`, `description`, `personnes_max`, `prix_haute_saison`, `prix_basse_saison`, `actif`, `promo`, `date_inscription`, `fk_region`, `id_picsum`) VALUES
@@ -65,16 +65,16 @@ INSERT INTO `chalets` (`id`, `nom`, `description`, `personnes_max`, `prix_haute_
 -- --------------------------------------------------------
 
 --
--- Structure de la table `regions`
+-- Table structure for table `regions`
 --
 
 CREATE TABLE `regions` (
   `id` int NOT NULL,
-  `nom` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+  `nom` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `regions`
+-- Dumping data for table `regions`
 --
 
 INSERT INTO `regions` (`id`, `nom`) VALUES
@@ -83,45 +83,77 @@ INSERT INTO `regions` (`id`, `nom`) VALUES
 (3, 'Montérégie'),
 (4, 'Saguenay–Lac-Saint-Jean ');
 
+-- --------------------------------------------------------
+
 --
--- Index pour les tables déchargées
+-- Table structure for table `Utilisateurs`
+--
+
+CREATE TABLE `Utilisateurs` (
+  `id` int NOT NULL,
+  `code_utilisateur` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `courriel` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `Utilisateurs`
+--
+
+INSERT INTO `Utilisateurs` (`id`, `code_utilisateur`, `mot_de_passe`, `courriel`) VALUES
+(1, 'test', '$2y$10$IQIO1Xr9gRhOR47sjvZEFOk.mvIUiKSY/aD6c/nZgClMJupYmQWau', 'info@test.ca');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `chalets`
+-- Indexes for table `chalets`
 --
 ALTER TABLE `chalets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `chalets_regions` (`fk_region`);
 
 --
--- Index pour la table `regions`
+-- Indexes for table `regions`
 --
 ALTER TABLE `regions`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- Indexes for table `Utilisateurs`
+--
+ALTER TABLE `Utilisateurs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `chalets`
+-- AUTO_INCREMENT for table `chalets`
 --
 ALTER TABLE `chalets`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT pour la table `regions`
+-- AUTO_INCREMENT for table `regions`
 --
 ALTER TABLE `regions`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Contraintes pour les tables déchargées
+-- AUTO_INCREMENT for table `Utilisateurs`
+--
+ALTER TABLE `Utilisateurs`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `chalets`
+-- Constraints for table `chalets`
 --
 ALTER TABLE `chalets`
   ADD CONSTRAINT `chalets_regions` FOREIGN KEY (`fk_region`) REFERENCES `regions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
